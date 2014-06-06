@@ -1,3 +1,4 @@
+# Data pre processing to extract required dates and convert to date time classes
 data <- read.table("household_power_consumption.txt",sep=";", header=TRUE)
 data$Time<-as.character(data$Time)
 data$Date<-as.character(data$Date)
@@ -7,7 +8,7 @@ temp <- paste(x$Date,x$Time)
 x$Datetime <- strptime(temp, format="%Y-%m-%d %H:%M:%S")
 
 png("Plot3.png")
-
+#Draw plot
 x$Sub_metering_1 <- as.numeric(as.character(x$Sub_metering_1))
 x$Sub_metering_2 <- as.numeric(as.character(x$Sub_metering_2))
 x$Sub_metering_3 <- as.numeric(as.character(x$Sub_metering_3))
